@@ -27,7 +27,7 @@ const firebaseApp = firebase.initializeApp(
       .then((result) => {
         // Signed in 
         // alert("user created")
-        window.location.href = "../Polls App/index.html";
+        window.location.href = "../Threads Clone/index.html";
   
         // ...
       })

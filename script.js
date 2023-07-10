@@ -30,7 +30,7 @@ firebase.auth().signInWithEmailAndPassword(email, password)
   .then(() => {
     // Signed in 
     // alert("Your successfully log In")
-    window.location.href = "./Polls App/index.html";
+    window.location.href = "./Threads Clone/index.html";
     // ...
   })
   .catch((error) => {
