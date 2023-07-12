@@ -24,16 +24,16 @@ function post(e) {
   main.classList.toggle('main-block');
   // body.classList.toggle('body-hidden');
 
-  postImg.setAttribute('src', '');
-  postVideo.setAttribute('src', '');
-  postImg.style.display = 'none';
-  postVideo.style.display = 'none';
-  imgInput.value = '';
-  videoInput.value = '';
-  videoInput.removeAttribute('disabled');
-  imgInput.removeAttribute('disabled');
-  videoInputIcon.style.cssText = "opacity: 100%; pointer-events: auto;"
-  imgInputIcon.style.cssText = "opacity: 100%; pointer-events: auto;"
+  // postImg.setAttribute('src', '');
+  // postVideo.setAttribute('src', '');
+  // postImg.style.display = 'none';
+  // postVideo.style.display = 'none';
+  // imgInput.value = '';
+  // videoInput.value = '';
+  // videoInput.removeAttribute('disabled');
+  // imgInput.removeAttribute('disabled');
+  // videoInputIcon.style.cssText = "opacity: 100%; pointer-events: auto;"
+  // imgInputIcon.style.cssText = "opacity: 100%; pointer-events: auto;"
 }
 
 caption.addEventListener('keyup', function () {
@@ -73,17 +73,18 @@ document.getElementById("video").onchange = function (event) {
 
 function linky(text) {
   var urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
-  return text.replace(urlRegex, function(url,b,c) {
-      var url2 = (c == 'www.') ?  'http://' +url : url;
-      return '<a href="' +url2+ '" target="_blank">' + url + '</a>';
-  }) 
+  return text.replace(urlRegex, function (url, b, c) {
+    var url2 = (c == 'www.') ? 'http://' + url : url;
+    return '<a href="' + url2 + '" target="_blank">' + url + '</a>';
+  })
 }
 
 let pstForm = document.getElementById('post-form');
 function posted() {
   let text = linky(caption.value);
-  let img = postImg.getAttribute('src');
-  let video = postVideo.getAttribute('src');
+  let username = document.getElementById('post-user');
+
+  // document.querySelector(".usernameD").innerHTML = username.value;
 
   let imgStyle;
   let videoStyle;
@@ -94,7 +95,7 @@ function posted() {
   if (img !== "") {
     imgStyle = 'style="display: block !important;"';
   } else {
-    videoStyle= 'style="display: block !important;"';
+    videoStyle = 'style="display: block !important;"';
   }
 
   let postContainer = '\
@@ -102,7 +103,7 @@ function posted() {
 <div class="post-header">\
     <img class="post-profile-img" src="../img/profile-img/elon.jpg" alt="Elon Musk">\
     <div class="post-info">\
-        <div class="post-title flex"><span>Elon Musk</span> added a post on <div\
+        <div class="post-title flex"><span class="usernameD">Elon Musk</span> added a post on <div\
                 class="time">' + time + '</div>\
         </div>\
         <div class="profile-name">@elonmusk</div>\
@@ -110,26 +111,34 @@ function posted() {
 </div>\
 <div class="post-body">\
     <pre class="caption-text">' + text + '</pre>\
-    <img class="post-content" src=' + img + ' ' + imgStyle + '>\
-    <video class="post-content" src=' + video + ' ' + videoStyle + ' controls controlsList="nodownload">Your browser does not support video tag.</video>\
 </div>\
 <div class="post-bottom flex">\
-    <div class="post-icons">\
-        <svg role="img" xmlns="http://www.w3.org/2000/svg" class="post-icon" fill="none" viewBox="0 0 24 24" aria-label="Like icon"\
-            stroke="currentColor" stroke-width="2">\
-            <path stroke-linecap="round" stroke-linejoin="round"\
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />\
-                <title>Like</title>\
-        </svg>\
-    </div>\
-    <div class="post-icons">\
-        <svg role="img" xmlns="http://www.w3.org/2000/svg" class="post-icon" fill="none" viewBox="0 0 24 24" aria-label="Share icon"\
-            stroke="currentColor" stroke-width="2">\
-            <path stroke-linecap="round" stroke-linejoin="round"\
-                d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />\
-              <title>Share</title>\
-        </svg>\
-    </div>\
+<div class="post-icons">\
+<svg role="img" xmlns="http://www.w3.org/2000/svg" class="post-icon" fill="none" viewBox="0 0 24 24" aria-label="Like icon"stroke="currentColor" stroke-width="2">\
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />\
+        <title>Like</title>\
+</svg>\
+</div>\
+<div class="post-icons">\
+<svg xmlns="http://www.w3.org/2000/svg" class="post-icon" width="16" height="16" fill="none" class="bi bi-chat" viewBox="0 0 16 16">\
+    <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>\
+      <title>Comment</title>\
+</svg>\
+</div>\
+<div class="post-icons">\
+<svg xmlns="http://www.w3.org/2000/svg" width="16" class="post-icon" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">\
+    <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>\
+    <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>\
+  </svg>\
+      <title>Repost</title>  \
+</svg>\
+</div>\
+<div class="post-icons">\
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="post-icon" fill="currentColor" class="bi bi-send" viewBox="0 0 18 18">\
+    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>\
+      <title>Share</title>  \
+</svg>\
+</div>\
 </div>\
 </div>\
 '
@@ -137,5 +146,7 @@ function posted() {
 }
 
 let current = new Date();
-let time = current.toLocaleTimeString();
+let options = { hour: 'numeric', minute: 'numeric', hour12: true };
+let time = current.toLocaleTimeString(undefined, options);
+console.log(time);
 document.getElementsByClassName('time')[0].innerHTML = time;
