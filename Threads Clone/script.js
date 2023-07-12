@@ -11,10 +11,6 @@ function followBtnChange(e) {
 let body = document.getElementsByTagName('body')[0];
 let main = document.getElementsByTagName('main')[0];
 let postW = document.getElementsByClassName('pop-up')[0];
-let imgInput = document.getElementById('img');
-let videoInput = document.getElementById('video');
-let postImg = document.getElementById('post-img');
-let postVideo = document.getElementById('post-video');
 let caption = document.getElementById('caption');
 let postBtn = document.getElementsByClassName('post')[0];
 let imgInputIcon = document.getElementsByClassName('icon-for-select')[0];
@@ -22,18 +18,6 @@ let videoInputIcon = document.getElementsByClassName('icon-for-select')[1];
 function post(e) {
   e.classList.toggle('pop-show');
   main.classList.toggle('main-block');
-  // body.classList.toggle('body-hidden');
-
-  // postImg.setAttribute('src', '');
-  // postVideo.setAttribute('src', '');
-  // postImg.style.display = 'none';
-  // postVideo.style.display = 'none';
-  // imgInput.value = '';
-  // videoInput.value = '';
-  // videoInput.removeAttribute('disabled');
-  // imgInput.removeAttribute('disabled');
-  // videoInputIcon.style.cssText = "opacity: 100%; pointer-events: auto;"
-  // imgInputIcon.style.cssText = "opacity: 100%; pointer-events: auto;"
 }
 
 caption.addEventListener('keyup', function () {
@@ -44,32 +28,6 @@ caption.addEventListener('keyup', function () {
   }
 });
 
-
-// Input Field img
-function readURL(input) {
-  if (input.files && input.files[0]) {
-
-    let reader = new FileReader();
-    reader.onload = function (e) {
-      postImg.style.display = 'block';
-      postImg.setAttribute("src", e.target.result);
-      videoInput.disabled = 'true';
-      videoInputIcon.style.cssText = "opacity: 60%; pointer-events: none;"
-    };
-
-    reader.readAsDataURL(input.files[0]);
-  }
-}
-
-// Input Field Video
-document.getElementById("video").onchange = function (event) {
-  let file = event.target.files[0];
-  let blobURL = URL.createObjectURL(file);
-  postVideo.style.display = 'block';
-  postVideo.src = blobURL;
-  imgInput.disabled = 'true';
-  imgInputIcon.style.cssText = "opacity: 60%; pointer-events: none;"
-}
 
 function linky(text) {
   var urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
@@ -86,17 +44,9 @@ function posted() {
 
   // document.querySelector(".usernameD").innerHTML = username.value;
 
-  let imgStyle;
-  let videoStyle;
-
   pstForm.reset();
   postBtn.classList.remove('post-valued');
 
-  if (img !== "") {
-    imgStyle = 'style="display: block !important;"';
-  } else {
-    videoStyle = 'style="display: block !important;"';
-  }
 
   let postContainer = '\
 <div class="post-container">\
