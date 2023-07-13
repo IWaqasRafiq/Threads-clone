@@ -13,8 +13,6 @@ let main = document.getElementsByTagName('main')[0];
 let postW = document.getElementsByClassName('pop-up')[0];
 let caption = document.getElementById('caption');
 let postBtn = document.getElementsByClassName('post')[0];
-let imgInputIcon = document.getElementsByClassName('icon-for-select')[0];
-let videoInputIcon = document.getElementsByClassName('icon-for-select')[1];
 function post(e) {
   e.classList.toggle('pop-show');
   main.classList.toggle('main-block');
@@ -40,9 +38,9 @@ function linky(text) {
 let pstForm = document.getElementById('post-form');
 function posted() {
   let text = linky(caption.value);
-  let username = document.getElementById('post-user');
+  let username = document.getElementById('post-user').value;
 
-  // document.querySelector(".usernameD").innerHTML = username.value;
+  document.getElementsByClassName(".usernameD").innerHTML = username;
 
   pstForm.reset();
   postBtn.classList.remove('post-valued');
@@ -53,14 +51,14 @@ function posted() {
 <div class="post-header">\
     <img class="post-profile-img" src="../img/profile-img/elon.jpg" alt="Elon Musk">\
     <div class="post-info">\
-        <div class="post-title flex"><span class="usernameD">Elon Musk</span> added a post on <div\
+        <div class="post-title flex"><span class="usernameD">' + username + '</span> added a post on <div\
                 class="time">' + time + '</div>\
         </div>\
         <div class="profile-name">@elonmusk</div>\
     </div>\
 </div>\
 <div class="post-body">\
-    <pre class="caption-text">' + text + '</pre>\
+    <p class="caption-text">' + text + '</p>\
 </div>\
 <div class="post-bottom flex">\
 <div class="post-icons">\

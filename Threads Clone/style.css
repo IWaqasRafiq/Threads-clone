@@ -39,13 +39,6 @@ a {
     backdrop-filter: blur(1.5px);
 }
 
-.left-container {
-    padding: 0 1.7rem;
-    cursor: pointer;
-    padding: 0 3.4rem;
-    gap: 1rem;
-}
-
 .main-icon {
     width: 3.2rem;
     transition: .3s all ease;
@@ -127,8 +120,7 @@ a {
     user-select: none;
 }
 
-.left-col,
-.right-col {
+.left-col{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -145,13 +137,7 @@ a {
     align-items: flex-end;
 }
 
-.right-col {
-    padding: 1rem 0 1rem 3rem;
-    align-items: flex-start;
-}
-
-.left-col::-webkit-scrollbar,
-.right-col::-webkit-scrollbar {
+.left-col::-webkit-scrollbar {
     display: none;
 }
 
@@ -224,14 +210,16 @@ a {
 
 .mid-col {
 
-    min-width: max-content;
-    max-width: 100rem;
+    min-width: fit-content;
+    max-height: fit-content !important;
+    /* max-width: 100rem; */
     padding: 2rem;
     border-radius: 1.2rem 1.2rem 0 0;
 }
 
 .post-container {
-    width: 100%;
+    /* width: 100%; */
+    max-width: 60rem;
     background-color: #495057;
     border-radius: 1rem;
     margin-bottom: 2rem;
@@ -283,11 +271,13 @@ a {
 
 .post-body {
     width: 100%;
+    height: fit-content;
     padding: 2.5rem 2.5rem 1.5rem;
 }
 
 .caption-text {
     font-size: 1.6rem;
+    line-height: normal;
     font-weight: 500;
     letter-spacing: 1px;
     font-family: 'Poppins', sans-serif;
