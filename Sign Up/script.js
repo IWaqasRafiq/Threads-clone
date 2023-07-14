@@ -1,13 +1,13 @@
 
 const firebaseApp = firebase.initializeApp(
     {
-      apiKey: "AIzaSyCzZTDuR5mwE-2Wq6D8-cK3lDnfpAkecbw",
-      authDomain: "real-time-polling-app.firebaseapp.com",
-      databaseURL: "https://real-time-polling-app-default-rtdb.firebaseio.com",
-      projectId: "real-time-polling-app",
-      storageBucket: "real-time-polling-app.appspot.com",
-      messagingSenderId: "151148454470",
-      appId: "1:151148454470:web:d1e8eaa2c32102e4f36047"
+      apiKey: "AIzaSyDydCU0Fe2_TcJVB98idMF45dyz6423gxQ",
+      authDomain: "threads-clone-web.firebaseapp.com",
+      databaseURL: "https://threads-clone-web-default-rtdb.firebaseio.com",
+      projectId: "threads-clone-web",
+      storageBucket: "threads-clone-web.appspot.com",
+      messagingSenderId: "1093836480632",
+      appId: "1:1093836480632:web:4d9db806c2b1bb7a490d8d"
     });
   
   // Initialize Firebase
