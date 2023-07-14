@@ -1,13 +1,3 @@
-// Follower Buttons
-let flw1 = document.getElementsByClassName('follow')[0];
-let flw2 = document.getElementsByClassName('follow')[1];
-let flw3 = document.getElementsByClassName('follow')[2];
-
-function followBtnChange(e) {
-  e.classList.toggle('clicked');
-}
-
-// Pop-Ups
 let body = document.getElementsByTagName('body')[0];
 let main = document.getElementsByTagName('main')[0];
 let postW = document.getElementsByClassName('pop-up')[0];
@@ -40,6 +30,10 @@ function posted() {
   let text = linky(caption.value);
   let username = document.getElementById('post-user').value;
 
+  if (!username) {
+    useDefaultUsername();
+  }
+
   document.getElementsByClassName(".usernameD").innerHTML = username;
 
   pstForm.reset();
@@ -49,9 +43,9 @@ function posted() {
   let postContainer = '\
 <div class="post-container">\
 <div class="post-header">\
-    <img class="post-profile-img" src="../img/profile-img/elon.jpg" alt="Elon Musk">\
+    <img class="post-profile-img" src="../Img/person-circle.png" alt="Elon Musk">\
     <div class="post-info">\
-        <div class="post-title flex"><span class="usernameD">' + username + '</span> added a post on <div\
+        <div class="post-title flex"><span class="usernameD verified">' + username + '</span> added a post on <div\
                 class="time">' + time + '</div>\
         </div>\
         <div class="profile-name">@elonmusk</div>\

@@ -26,9 +26,6 @@ a {
     text-decoration: none;
 }
 
-
-/* Header Section Starts */
-
 .header {
     height: 8rem;
     width: 100%;
@@ -57,26 +54,11 @@ a {
     color: #f8f9fa;
 }
 
-.right-container {
-    gap: 1.5rem;
-    padding-right: 3rem;
-}
-
 .img-container {
     width: 7rem;
     flex-direction: column;
     gap: 1.3rem;
     padding-top: 3.7rem;
-}
-
-.right-side-img {
-    width: 2.7rem;
-    cursor: pointer;
-    transition: .3s all ease;
-}
-
-.right-side-img:hover {
-    opacity: 60%;
 }
 
 .radius-50 {
@@ -93,17 +75,6 @@ a {
     opacity: 0;
     transition: .3s all ease;
 }
-
-.right-side-img:hover + .hov-text {
-    opacity: 100%;
-    z-index: 99;
-}
-
-
-
-
-
-/* Main Section Starts */
 
 .main {
     width: 100%;
@@ -211,7 +182,7 @@ a {
 .mid-col {
 
     min-width: fit-content;
-    max-height: fit-content !important;
+    /* max-height: ; */
     /* max-width: 100rem; */
     padding: 2rem;
     border-radius: 1.2rem 1.2rem 0 0;
@@ -277,15 +248,12 @@ a {
 
 .caption-text {
     font-size: 1.6rem;
+    overflow-wrap: break-word;
     line-height: normal;
     font-weight: 500;
     letter-spacing: 1px;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
-}
-
-.caption-text a {
-    color: #74c0fc;
 }
 
 .post-content {
@@ -326,11 +294,6 @@ a {
     stroke: #d6336c;
 }
 
-
-.search {
-    width: max-content;
-}
-
 .text-field {
     width: 25rem;
     height: 3.5rem;
@@ -354,143 +317,8 @@ a {
 }
 
 .text-field:focus,
-.search:hover > .text-field,
-.search:hover > .search-btn,
 .text-field:focus + .search-btn {
     border-color: #339af0;
-}
-
-.search-btn {
-    background-color: #495057;
-    height: 3.5rem;
-    padding: .5rem 1.5rem;
-    outline: none;
-    border-radius: 0 5px 5px 0;
-    border-top: 2px solid transparent;
-    border-right: 2px solid transparent;
-    border-bottom: 2px solid transparent;
-    border-left: none;
-    transition: .3s all ease;
-    cursor: pointer;
-}
-
-.search-icon {
-    width: 1.6rem;
-    stroke: #f8f9fa;
-}
-
-.trending-bar {
-    width: 300px;
-    background-color: #495057;
-    border-radius: 7px;
-    overflow: hidden;
-}
-
-.trending-title {
-    width: 100%;
-    padding: 1.5rem 0;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    gap: 1rem;
-    font-weight: 600;
-}
-
-.trend-icon {
-    width: 2rem;
-}
-
-.trend-container {
-    width: 100%;
-    padding: 1.5rem 0 0;
-    gap: .5rem;
-}
-
-.trend-post {
-    width: 100%;
-    padding: 1.2rem .5rem;
-    gap: .5rem;
-    cursor: pointer;
-    transition: all .3s ease;
-}
-
-.trend-post:hover {
-    background-color: #868e96;
-}
-
-.trend-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    padding: 0 1.5rem;
-    color: #868e96;
-}
-
-.trend-post-text {
-    display: flex;
-    flex-direction: column;
-    gap: .4rem;
-}
-
-.trend-postman {
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-.trend-text {
-    font-size: 1.05rem;
-    letter-spacing: .05rem;
-}
-
-.trend-img {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 3px;
-    padding: 0 .5rem 0 0;
-}
-
-.follow-bar {
-    width: 300px;
-    background-color: #495057;
-    border-radius: 7px;
-    overflow: hidden;
-}
-
-.follow-title {
-    width: 100%;
-    padding: 1.2rem 3rem;
-    height: 3rem;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    font-family: 600;
-}
-
-.follow-info-container {
-    padding: 1rem 0 0;
-}
-
-.follow-account {
-    width: 100%;
-    padding: 1.5rem;
-    align-items: center;
-    /* justify-content: space-between; */
-}
-
-.follow-img {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    margin: 0 1rem 0 .5rem;
-}
-
-.address {
-    padding: 0 1rem 0 0;
-    width: 100%;
-    /* width: calc(100% - 5rem); */
-}
-
-.follow-name {
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 500;
 }
 
 .verified {
@@ -508,42 +336,7 @@ a {
     background-position: center;
 }
 
-.follow-workplace {
-    margin-top: 5px;
-    font-style: normal;
-    color: #adb5bd;
-    font-size: 700;
-}
 
-.follow {
-    padding: .3rem 1rem;
-    border-radius: 2rem;
-    border: 2px solid #f8f9fa;
-    outline: none;
-    font-size: 1.3rem;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    background-color: #f8f9fa;
-    transition: .3s all ease;
-    margin: 0 .5rem;
-}
-
-.follow:hover {
-    opacity: 60%;
-}
-
-.clicked {
-    background-color: transparent;
-    color: #f8f9fa;
-}
-
-.clicked::after {
-    content: "ing";
-}
-
-
-/* Pop Ups */
 .pop-up {
     width: 60rem;
     height: 40rem;
