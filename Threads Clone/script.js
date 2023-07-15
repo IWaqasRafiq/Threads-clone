@@ -180,7 +180,6 @@ function createPostContainer(username, text, time) {
   </div>\
   </div>\
   </div>\
-
   `;
   
   return postContainer;
