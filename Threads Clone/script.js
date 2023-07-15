@@ -60,7 +60,7 @@ function posted() {
 <div class="post-header">\
     <img class="post-profile-img" src="../Img/person-circle.png" alt="user">\
     <div class="post-info">\
-        <div class="post-title flex"><span class="usernameD verified">' + username + '</span> added a post on <div\
+        <div class="post-title flex"><span class="usernameD verified">' + username + '</span><p class="hideText"> added a post on</p> <div\
                 class="time">' + time + '</div>\
         </div>\
         <div class="profile-name">@user</div>\
@@ -203,3 +203,25 @@ document.getElementById('post-form').addEventListener('submit', function(event) 
   });
 
 displayPostedData();
+
+    // Check the current state of the media query on page load
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    handleMediaQuery(mediaQuery);
+
+    // Add an event listener to track changes in the media query state
+    mediaQuery.addListener(handleMediaQuery);
+
+    // Function to handle media query changes
+    function handleMediaQuery(mediaQuery) {
+      if (mediaQuery.matches) {
+        console.log('Media query matched! Screen width is 600px or less.');
+        // Perform actions specific to small screens
+        const element = document.querySelector(".main")
+        element.classList.remove("grid");
+      } else {
+        console.log('Media query not matched! Screen width is larger than 600px.');
+        // Perform actions specific to larger screens
+        const element = document.querySelector(".main")
+        element.classList.add("grid");
+      }
+    }
